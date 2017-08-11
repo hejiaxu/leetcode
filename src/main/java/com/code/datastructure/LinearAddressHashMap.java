@@ -2,7 +2,6 @@ package com.code.datastructure;
 
 
 public class LinearAddressHashMap<K, V> {
-
     int capacity;
     int size;
     Node<K, V>[] nodes;
