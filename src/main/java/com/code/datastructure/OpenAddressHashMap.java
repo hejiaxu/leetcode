@@ -1,7 +1,7 @@
 package com.code.datastructure;
 
 
-public class NodeHashMap<K, V> {
+public class OpenAddressHashMap<K, V> {
     int capacity = 16;
     int size = 0;
     Node<K, V>[] nodes;
@@ -18,18 +18,19 @@ public class NodeHashMap<K, V> {
         }
     }
 
-    NodeHashMap(int capacity) {
+    OpenAddressHashMap(int capacity) {
         this.capacity = capacity;
         this.nodes = new Node[capacity];
     }
 
-    NodeHashMap() {
+    OpenAddressHashMap() {
         this.nodes = new Node[capacity];
     }
 
     public V get(K key) {
         int hashCode = key.hashCode();
-        int pos = hashCode % capacity;
+        //int pos = hashCode % capacity;
+        int pos = hashCode & (capacity - 1);
         Node tmpNode = nodes[pos];
         while (tmpNode != null) {
             if (tmpNode.key.equals(key)) {

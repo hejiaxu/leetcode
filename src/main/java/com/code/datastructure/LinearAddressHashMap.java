@@ -24,10 +24,12 @@ public class LinearAddressHashMap<K, V> {
     public V get(K key) {
         //线性地址法
         for (int i = 0; i < capacity; i++) {
-            if (nodes[(key.hashCode() + i) % capacity] == null) {
+            //int pos = (key.hashCode() + i) % capacity;
+            int pos = key.hashCode() & (capacity - 1);
+            if (nodes[pos] == null) {
                 return null;
-            } else if (nodes[(key.hashCode() + i) % capacity].key == key) {
-                return nodes[(key.hashCode() + i) % capacity].value;
+            } else if (nodes[pos].key == key) {
+                return nodes[pos].value;
             }
         }
 
@@ -36,13 +38,15 @@ public class LinearAddressHashMap<K, V> {
 
     public void put(K key, V value) {
         for (int i = 0; i < capacity; i++) {
-            if (nodes[(key.hashCode() + i) % capacity] == null) {
-                nodes[(key.hashCode() + i) % capacity] = new Node(key, value);
+            //int pos = (key.hashCode() + i) % capacity;
+            int pos = key.hashCode() & (capacity - 1);
+            if (nodes[pos] == null) {
+                nodes[pos] = new Node(key, value);
                 size++;
                 return;
             }
-            if (nodes[(key.hashCode() + i) % capacity].key == key) {
-                nodes[(key.hashCode() + i) % capacity].value = value;
+            if (nodes[pos].key == key) {
+                nodes[pos].value = value;
                 return;
             }
         }
