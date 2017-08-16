@@ -1,3 +1,4 @@
+import java.util.Collection;
 import java.util.HashMap;
 
 public class Main {
@@ -7,7 +8,6 @@ public class Main {
         int i = tableSizeFor(3);
         System.out.println(i);
         System.out.println(-1 >>> 1);
-
     }
 
     static final int tableSizeFor(int cap) {
