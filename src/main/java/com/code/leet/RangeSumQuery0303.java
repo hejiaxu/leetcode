@@ -8,9 +8,10 @@ public class RangeSumQuery0303 {
         sum = new int[nums.length + 1];
         sum[0] = 0;
         for (int i = 0; i < nums.length; i++) {
-            sum[i+1] = nums[i] + sum[i];
+            sum[i + 1] = nums[i] + sum[i];
         }
     }
+    
     int[] sum;
 
     public int sumRange(int i, int j) {

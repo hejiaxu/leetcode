@@ -2,7 +2,7 @@ package com.code.syn;
 
 
 /*
-1. local inner class should only use final var of outer, for its a dup of it
+1. local inner class should only use final var of outer, for its val dup of it
 2. extends of inner class should init an outer class in constructor
 
  */
@@ -14,7 +14,7 @@ public class InnerClass {
 
     private void test() {
         A b = new A();
-        b.a = 1;
+        b.val = 1;
 
         new Thread() {
             @Override
@@ -25,32 +25,30 @@ public class InnerClass {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                b.a = 2;
-                System.out.println("run" + b.a);
+                b.val = 2;
+                System.out.println("run" + b.val);
                 super.run();
             }
         }.start();
 
-        System.out.println("test" + b.a);
+        System.out.println("test" + b.val);
     }
 
     public class A {
-        int a;
+        int val;
 
         public class C {
 
         }
     }
-
-
 }
 
 // extends of InnerClass
-class B extends InnerClass.A.C {
-    B(InnerClass.A a) {
-        a.super();
-    }
-}
+//class B extends InnerClass.A.C {
+//    B(InnerClass.A val) {
+//        val.super();
+//    }
+//}
 
 
 
