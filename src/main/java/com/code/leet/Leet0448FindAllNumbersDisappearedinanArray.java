@@ -3,7 +3,7 @@ package com.code.leet;
 import java.util.LinkedList;
 import java.util.List;
 
-public class FindAllNumbersDisappearedinanArray0448 {
+public class Leet0448FindAllNumbersDisappearedinanArray {
     public List<Integer> findDisappearedNumbers(int[] nums) {
         int length = nums.length;
         int[] tmp = new int[length];

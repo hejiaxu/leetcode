@@ -7,7 +7,7 @@ https://leetcode.com/problems/subarray-sum-equals-k/tabs/description
 Given an array of integers and an integer k, you need to find the total
  number of continuous subarrays whose sum equals to k.
  */
-public class SubarraySumEqualsK0560 {
+public class Leet0560SubarraySumEqualsK {
     public int subarraySum(int[] nums, int k) {
         int num = 0;
         int sum = 0;

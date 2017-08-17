@@ -1,4 +1,4 @@
-package com.code.syn;
+package com.code.syntax;
 
 
 /*
