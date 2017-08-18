@@ -1,6 +1,6 @@
 package com.code.leet;
 
-public class Leet0198HouseRobber {
+public class L0198HouseRobber {
 
     public int rob(int[] nums) {
         int length = nums.length;

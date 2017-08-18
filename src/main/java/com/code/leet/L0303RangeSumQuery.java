@@ -3,8 +3,8 @@ package com.code.leet;
 Given an integer array nums, find the sum of the elements between indices i and j (i ≤ j), inclusive.
 
  */
-public class Leet0303RangeSumQuery {
-    public Leet0303RangeSumQuery(int[] nums) {
+public class L0303RangeSumQuery {
+    public L0303RangeSumQuery(int[] nums) {
         sum = new int[nums.length + 1];
         sum[0] = 0;
         for (int i = 0; i < nums.length; i++) {

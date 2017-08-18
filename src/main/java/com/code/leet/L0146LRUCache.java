@@ -12,13 +12,13 @@ get(key) - Get the value (will always be positive) of the key if the key exists 
   When the cache reached its capacity,
 it should invalidate the least recently used item before inserting a new item.
  */
-public class Leet0146LRUCache {
+public class L0146LRUCache {
     int capacity;
     HashMap<Integer,Node> hashMap;
     Node head;
     Node tail;
 
-    public Leet0146LRUCache(int capacity) {
+    public L0146LRUCache(int capacity) {
         this.capacity = capacity;
         this.hashMap = new HashMap<>();
         head = new Node(-1,-1);
@@ -84,7 +84,7 @@ public class Leet0146LRUCache {
     }
 
     public static void main(String[] args) {
-        Leet0146LRUCache lruCache0146 = new Leet0146LRUCache(1);
+        L0146LRUCache lruCache0146 = new L0146LRUCache(1);
         String[] opt = {"LRUCache","put","get"};
         String a = "[[[1],[2,1],[2]]";
         a = a.replace("]","");

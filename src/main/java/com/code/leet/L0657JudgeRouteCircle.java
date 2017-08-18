@@ -1,6 +1,6 @@
 package com.code.leet;
 
-public class Leet0657JudgeRouteCircle {
+public class L0657JudgeRouteCircle {
     public boolean judgeCircle(String moves) {
         int x = 0;
         int y = 0;
