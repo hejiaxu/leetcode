@@ -8,7 +8,7 @@ You need to find the largest value in each row of a binary tree.
 
 
  */
-public class LL0515FindLargestValueinEachTreeRow {
+public class L0515FindLargestValueinEachTreeRow {
     public class TreeNode {
         int val;
         TreeNode left;
