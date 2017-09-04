@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.basic;
+package com.code.syntax;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;

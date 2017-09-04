@@ -1,4 +1,4 @@
-package com.code.datastructure;
+package com.code.syntax;
 
 
 public class OpenAddressHashMap<K, V> {

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.algorithm.java;
+package com.code.syntax;
 
 import java.math.BigInteger;
 

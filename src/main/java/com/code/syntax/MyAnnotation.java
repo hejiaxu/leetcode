@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.basic;
+package com.code.syntax;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;

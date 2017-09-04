@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.algorithm.leetcode;
+package com.code.leet;
 
 import java.awt.event.ItemEvent;
 import java.lang.reflect.Array;

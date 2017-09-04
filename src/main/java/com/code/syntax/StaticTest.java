@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.basic;
+package com.code.syntax;
 
 /**
  * @title test1.java

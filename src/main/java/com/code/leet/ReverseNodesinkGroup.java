@@ -1,9 +1,9 @@
 /**
  * 
  */
-package com.algorithm.leetcode;
+package com.code.leet;
 
-import com.algorithm.leetcode.ReverseNodesinkGroup.ListNode;
+import com.code.leet.ReverseNodesinkGroup.ListNode;
 
 /**
  * Jiaxu

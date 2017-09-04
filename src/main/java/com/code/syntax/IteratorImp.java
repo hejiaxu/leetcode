@@ -1,13 +1,11 @@
 /**
  * 
  */
-package com.basic;
+package com.code.syntax;
 
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-
-import org.w3c.dom.traversal.NodeIterator;
 
 /**
  * Jiaxu

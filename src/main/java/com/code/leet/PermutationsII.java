@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.algorithm.leetcode;
+package com.code.leet;
 
 import java.util.ArrayList;
 import java.util.Arrays;

@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.basic;
+package com.code.syntax;
 
 import java.util.Comparator;
 import java.util.Iterator;

@@ -1,13 +1,13 @@
 /**
  * 
  */
-package com.algorithm.leetcode;
+package com.code.leet;
 
 import java.util.Comparator;
 import java.util.PriorityQueue;
 import java.util.Queue;
 
-import com.algorithm.leetcode.MergekSortedLists.ListNode;
+import com.code.leet.MergekSortedLists.ListNode;
 
 /**
  * Jiaxu
