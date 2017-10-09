@@ -4,6 +4,7 @@
 package com.code.leet;
 
 import java.util.Arrays;
+import java.util.LinkedList;
 
 /**
  * Jiaxu
@@ -13,21 +14,14 @@ import java.util.Arrays;
 public class ArrayPartitionI {
 
 	public static void main(String[] args) {
-		// TODO 
-
+		// TODO
+		LinkedList hashSet = new LinkedList();
+		LinkedList hashSet2 = new LinkedList();
+		hashSet.addAll(hashSet2);
 	}
 	
-	//46ms
-	 public int arrayPairSum(int[] nums) {
-		 Arrays.sort(nums);
-		 int sum = 0;
-	     for (int i = 0; i < nums.length; i+=2) {
-			sum+=nums[i];
-	     }   
-	     return sum;
-	  }
  	//0ms
-    public int arrayPairSum2(int[] nums) {
+    public int arrayPairSum(int[] nums) {
         int[] exist = new int[20001];
  		for (int i = 0; i < nums.length; i++) {
  			exist[nums[i] + 10000]++;
