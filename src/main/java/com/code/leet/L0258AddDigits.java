@@ -8,7 +8,7 @@ package com.code.leet;
  * Sep 23, 2016
  * 
  */
-public class AddDigits {
+public class L0258AddDigits {
 	public static void main(String argv[]){
 		int addDigits = addDigits(34555);
 		System.out.println(addDigits);
@@ -29,12 +29,5 @@ public class AddDigits {
 	public static int addDigits2(int num){
 		return (1+(num-1)%9);
 	}
-	//2ms
-	public static int addDigits3(int num){
-		return (num!=0&&num%9==0)?9:num - 9*(num/9);
-	}
-	//2ms
-	public static int addDigits4(int num){
-		return (num!=0&&num%9==0)?9:num%9;
-	}
+
 }

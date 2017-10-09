@@ -11,7 +11,7 @@ import java.util.LinkedList;
  * Jun 11, 2017
  * 
  */
-public class ArrayPartitionI {
+public class L0561ArrayPartitionI {
 
 	public static void main(String[] args) {
 		// TODO

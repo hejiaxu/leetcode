@@ -1,9 +1,7 @@
 
 package com.code.leet;
 
-import com.code.leet.AddTwoNumbers.ListNode;
-
-public class AddTwoNumbers {
+public class L0002AddTwoNumbers {
 
 	public static void main(String[] args) {
 		ListNode l1 = new ListNode(2);

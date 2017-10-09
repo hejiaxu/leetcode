@@ -3,19 +3,16 @@
  */
 package com.code.leet;
 
-import java.util.LinkedList;
-import java.util.Queue;
-
 /**
  * Jiaxu
  * Nov 7, 2016
  * 
  */
-public class AddAndSearchWord {
+public class L0211AddAndSearchWord {
 
 	public static void main(String[] args) {
 		// TODO 
-		AddAndSearchWord addAndSearchWord = new AddAndSearchWord();
+		L0211AddAndSearchWord addAndSearchWord = new L0211AddAndSearchWord();
 		WordDictionary wordDictionary = addAndSearchWord.new WordDictionary();
 		wordDictionary.addWord("ab");
 //		wordDictionary.addWord("aaa");
@@ -108,82 +105,7 @@ public class AddAndSearchWord {
 //		}
 //
 //	}
-	
-	
-	//59ms
-//	public class WordDictionary {
-//	    private TrieNode root;
-//
-//	    public WordDictionary() {
-//	    	root = new TrieNode();
-//	    }
-//
-//        public void addWord(String word) {
-//	    	TrieNode tmp=root;
-//	    	char[] charArray = word.toCharArray();
-//	    	for (int i = 0; i < charArray.length; i++) {
-//	    		if (null == tmp.nodes[charArray[i]-'a']) {
-//	    			tmp.nodes[charArray[i]-'a'] = new TrieNode();
-//	    			tmp.nodes[charArray[i]-'a'].height = i+1;
-//				}
-//	    		tmp = tmp.nodes[charArray[i]-'a'];
-//			}
-//	    	tmp.nodes[26] = new TrieNode();
-//	    	tmp.height = charArray.length;
-//	    }
-//	    // Returns if the word is in the trie.
-//	    public boolean search(String word) {
-//	    	TrieNode tmp = root;
-//	    	char[] charArray = word.toCharArray();
-//	    	Queue<TrieNode> queue = new LinkedList<>();
-//	    	if ('.' == charArray[0]) {
-//	    		for (int i = 0; i < 26; i++) {
-//	    			if (null != tmp.nodes[i]) {
-//						queue.offer(tmp.nodes[i]);
-//					}
-//				}
-//			}else{
-//				if (null != tmp.nodes[charArray[0]-'a']) {
-//					queue.offer(tmp.nodes[charArray[0]-'a']);
-//				}
-//			}
-//	    	while(!queue.isEmpty()){
-//	    		tmp = queue.poll();
-//	    		if (tmp.height > charArray.length) {
-//					continue;
-//				}
-//	    		else if (tmp.height == charArray.length) {
-//					if (null != tmp.nodes[26]) {
-//						return true;
-//					}
-//				}else{
-//					if ('.' == charArray[tmp.height]) {
-//			    		for (int i = 0; i < 26; i++) {
-//			    			if (null != tmp.nodes[i]) { 
-//								queue.offer(tmp.nodes[i]);
-//							}
-//						}
-//					}else{
-//    	                if (null != tmp.nodes[charArray[tmp.height]-'a']) {
-//        					queue.offer(tmp.nodes[charArray[tmp.height]-'a']);
-//    			    	}					
-//					}
-//				}
-//	    		
-//	    	}
-//	    	return false;
-//	    }
-//	    class TrieNode {
-//		    // Initialize your data structure here.
-//			TrieNode[] nodes;
-//			int height;
-//		    public TrieNode() {
-//		        nodes = new TrieNode[27];
-//		        height = 0;
-//		    }
-//		}
-//
-//	}
+
 	
 	//31ms
 	public class WordDictionary {
