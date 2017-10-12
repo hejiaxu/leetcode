@@ -12,4 +12,10 @@ public class L0198HouseRobber {
         }
         return sum[length + 1];
     }
+
+    public static void main(String[] args) {
+        int[] ints = {2, 3, 4, 5, 1, 2, 3, 4, 5};
+        int rob = new L0198HouseRobber().rob(ints);
+        System.out.println(rob);
+    }
 }
