@@ -10,73 +10,35 @@ import java.util.Set;
 import java.util.TreeSet;
 
 /**
- * Jiaxu
- * Apr 20, 2017
- * 
+ Given an array of integers, find out whether there are two distinct indices i and j
+ in the array such that the absolute difference between nums[i] and nums[j] is at most t
+ and the absolute difference between i and j is at most k.
+
  */
-public class ContainsDuplicateIII {
+public class L0220ContainsDuplicateIII {
 
 	public static void main(String[] args) {
-
-		int[] a = {-3,3};
-		boolean containsNearbyAlmostDuplicate4 = containsNearbyAlmostDuplicate3(a, 2, 4);
+		int[] a = {-3, 3};
+		boolean containsNearbyAlmostDuplicate4 = new L0220ContainsDuplicateIII().containsNearbyAlmostDuplicate(a, 2, 4);
 		System.out.println(containsNearbyAlmostDuplicate4);
 	}
-	
-	
-	
-	//TLE
-	public boolean containsNearbyAlmostDuplicate(int[] nums, int k, int t) {
-		Set<Integer> set = new HashSet<>();
-		int j=0;
-		for (int i = 0; i < nums.length; i++) {
-			if (j<i-k) {
-				set.remove(nums[j]);
-				j++;
-			}
-			for(int l=nums[i]-t;l<=nums[i]+t;l++){
-				if (set.contains(l)) {
-					return true;
-				}
-			}
-			set.add(nums[i]);
-		}
-		
-		return false;
-    }
-	
-	//TLE
-	public static boolean containsNearbyAlmostDuplicate3(int[] nums, int k, int t) {
-		Set<Long> set = new HashSet<>();
-		int j=0;
-		for (int i = 0; i < nums.length; i++) {
-			if (j<i-k) {
-				set.remove((long)nums[j]);
-				j++;
-			}
-			
-			for (Long integer : set) {
-				if(Math.abs(integer-nums[i])<=t)return true;
-			}
-			set.add((long)nums[i]);
-		}
-		
-		return false;
-	}
+
 	//58ms O(N*log(k))
-	public static boolean containsNearbyAlmostDuplicate4(int[] nums, int k, int t) {
+	public boolean containsNearbyAlmostDuplicate(int[] nums, int k, int t) {
 		TreeSet<Long> set = new TreeSet<>();
 		for (int i = 0; i < nums.length; i++) {
 			long tmp = (long)nums[i];
-			if (i>k) {
-				set.remove((long)nums[i-k]);
+			if (i > k) {
+				set.remove((long)nums[i - k]);
 			}
+
 			Long ceil = set.ceiling(tmp);
-			if (ceil!=null&&ceil-tmp<=t) {
+			if (ceil != null && ceil - tmp <= t) {
 				return true;
 			}
+
 			Long floor = set.floor(tmp);
-			if (floor!=null&&tmp-floor<=t) {
+			if (floor != null && tmp - floor <= t) {
 				return true;
 			}
 			set.add(tmp);
@@ -84,6 +46,7 @@ public class ContainsDuplicateIII {
 		
 		return false;
 	}
+
 	//28ms O(N)
 	public boolean containsNearbyAlmostDuplicate5(int[] nums, int k, int t) {
         if (k < 1 || t < 0) return false;

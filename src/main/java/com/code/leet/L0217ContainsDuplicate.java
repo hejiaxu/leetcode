@@ -10,7 +10,7 @@ import java.util.HashSet;
  * Apr 20, 2017
  * 
  */
-public class ContainsDuplicate {
+public class L0217ContainsDuplicate {
 
 	public static void main(String[] args) {
 		// TODO 
