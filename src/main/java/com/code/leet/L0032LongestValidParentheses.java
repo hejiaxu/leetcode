@@ -20,7 +20,6 @@ public class L0032LongestValidParentheses {
         for (int i = 0; i < s.length(); i++) {
             if (s.charAt(i) == ')') {
                 if (numLeft <= 0) {
-
                     record[0][i] = 0;
                 } else {
                     numLeft--;
