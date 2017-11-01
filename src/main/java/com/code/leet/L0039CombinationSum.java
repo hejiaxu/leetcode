@@ -4,7 +4,6 @@ import java.util.LinkedList;
 import java.util.List;
 
 /*
-
 Given a set of candidate numbers (C) (without duplicates) and a target number (T),
 find all unique combinations in C where the candidate numbers sums to T.
 
@@ -14,7 +13,9 @@ Note:
 All numbers (including target) will be positive integers.
 The solution set must not contain duplicate combinations.
 For example, given candidate set [2, 3, 6, 7] and target 7,
+
  */
+
 public class L0039CombinationSum {
 
     public List<List<Integer>> combinationSum(int[] candidates, int target) {
@@ -50,9 +51,9 @@ public class L0039CombinationSum {
 
     public static void main(String[] args) {
 //        int[] nums = {1, 1, 3, 4, 3};
-        int[] nums = {2, 3, 6, 7};
+        int[] nums = {4, 2, 1};
 //        int[] nums = {1, 3, 5, 6, 3, 3, 2, 1, 7, 4, 4};
-        int target = 7;
+        int target = 32;
         List <List <Integer>> lists = new L0039CombinationSum().combinationSum(nums, target);
         for (int i = 0; i < lists.size(); i++) {
             List <Integer> list = lists.get(i);
@@ -63,6 +64,7 @@ public class L0039CombinationSum {
             }
             System.out.println();
         }
+        System.out.println(lists.size());
 
     }
 }
