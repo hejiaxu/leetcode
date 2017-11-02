@@ -25,6 +25,7 @@ public class L0301RemoveInvalidParentheses {
                     remove(s.substring(0, j) + s.substring(j + 1, s.length()), ans, i, j, par);
             return;
         }
+
         String reversed = new StringBuilder(s).reverse().toString();
         if (par[0] == '(') // finished left to right
             remove(reversed, ans, 0, 0, new char[]{')', '('});
@@ -32,13 +33,16 @@ public class L0301RemoveInvalidParentheses {
             ans.add(reversed);
     }
 
+    /*
+    https://discuss.leetcode.com/topic/35045/java-2ms-dfs-solution-based-on-dietpepsi-s/7
+     */
     public List<String> removeInvalidParentheses3(String s) {
         List<String> ans = new ArrayList<>();
         removeLeft(s, ans, new char[s.length()], 0, 0, 0);
         return ans;
     }
 
-    private static void removeLeft(String s, List<String> ans, char[] buf, int pos, int start, int last) {
+    private void removeLeft(String s, List<String> ans, char[] buf, int pos, int start, int last) {
         int p = start, b = 0;
         for (int i = start; i < s.length(); ++i) {
             if (s.charAt(i) == '(') {
@@ -64,7 +68,7 @@ public class L0301RemoveInvalidParentheses {
         removeRight(s, ans, buf, buf.length - rem, buf.length - rem, s.length() - 1, s.length() - 1, p);
     }
 
-    private static void removeRight(String s, List<String> ans, char[] buf, int pos, int len,
+    private void removeRight(String s, List<String> ans, char[] buf, int pos, int len,
                                     int start, int last, int p) {
         int b = 0;
         for (int i = start; i >= p; --i) {
