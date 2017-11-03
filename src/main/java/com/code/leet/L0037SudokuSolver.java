@@ -43,15 +43,14 @@ public class L0037SudokuSolver {
     }
 
     private boolean check(char[][] board, int i, int j, char num) {
-        int length = 9;
-        for (int k = 0; k < length; k++) {
+        for (int k = 0; k < 9; k++) {
             if ( board[i][k] == num || board[k][j] == num) {
                 return false;
             }
         }
 
-        for (int k = i - i%3; k < i - i%3 + 3; k++) {
-            for (int l = j - j%3; l < j - j%3 + 3; l++) {
+        for (int k = i - i % 3; k < i - i % 3 + 3; k++) {
+            for (int l = j - j % 3; l < j - j % 3 + 3; l++) {
                 if ( board[k][l] == num ) {
                     return false;
                 }
