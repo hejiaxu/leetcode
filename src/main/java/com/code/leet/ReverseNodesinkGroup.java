@@ -3,8 +3,6 @@
  */
 package com.code.leet;
 
-import com.code.leet.ReverseNodesinkGroup.ListNode;
-
 /**
  * Jiaxu
  * Jul 5, 2017

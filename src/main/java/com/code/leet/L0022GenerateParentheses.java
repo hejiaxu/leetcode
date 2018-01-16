@@ -6,7 +6,6 @@ Given n pairs of parentheses, write a function to generate all combinations of w
 
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 

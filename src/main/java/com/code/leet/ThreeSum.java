@@ -3,8 +3,6 @@
  */
 package com.code.leet;
 
-import java.awt.event.ItemEvent;
-import java.lang.reflect.Array;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.LinkedList;

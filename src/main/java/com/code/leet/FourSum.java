@@ -3,12 +3,7 @@
  */
 package com.code.leet;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 /**
  * Jiaxu
@@ -20,7 +15,6 @@ public class FourSum {
 	public static void main(String[] args) {
 		// TODO 
 		int []nums = {1,0,-1,0,-2,2};
-		
 		List<List<Integer>> fourSum = fourSum(nums, 0);
 		for (List<Integer> list : fourSum) {
 			for (Integer integer : list) {

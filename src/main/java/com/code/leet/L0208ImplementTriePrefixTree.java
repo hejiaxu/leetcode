@@ -4,11 +4,12 @@
 package com.code.leet;
 
 /**
- * Jiaxu
- * Nov 7, 2016
- * 
+ Implement a trie with insert, search, and startsWith methods.
+
+ Note:
+ You may assume that all inputs are consist of lowercase letters a-z.
  */
-public class ImplementTrie {
+public class L0208ImplementTriePrefixTree {
 
 	public static void main(String[] args) {
 		// TODO 
@@ -75,7 +76,9 @@ public class ImplementTrie {
 	}
 	
 	//27ms
-	class TrieNode2 {
+	class TrieNode2
+
+	{
 		// Initialize your data structure here.
 		TrieNode2[] nodes;
 		boolean isWord = false;

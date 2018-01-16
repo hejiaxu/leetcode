@@ -3,8 +3,6 @@
  */
 package com.code.leet;
 
-import java.util.List;
-
 /**
  * Jiaxu
  * Mar 29, 2017

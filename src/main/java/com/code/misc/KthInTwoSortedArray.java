@@ -1,9 +1,7 @@
 /**
  * 
  */
-package com.code.leet;
-
-import java.util.Arrays;
+package com.code.misc;
 
 /**
  * Jiaxu

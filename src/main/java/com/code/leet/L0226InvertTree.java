@@ -4,11 +4,21 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 /**
- * Jiaxu
- * Sep 29, 2016
- * 
+ *
+ * Invert a binary tree.
+ 4
+ /   \
+ 2     7
+ / \   / \
+ 1   3 6   9
+ to
+ 4
+ /   \
+ 7     2
+ / \   / \
+ 9   6 3   1
  */
-public class InvertTree {
+public class L0226InvertTree {
 	public static void main(String[] args) {
 		// TODO 
 
