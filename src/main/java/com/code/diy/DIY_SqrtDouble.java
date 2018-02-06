@@ -1,11 +1,11 @@
-package com.code.misc;
+package com.code.diy;
 
-public class SqrtDouble {
+public class DIY_SqrtDouble {
 
     public static void main(String[] args) {
-        double sqrt = new SqrtDouble().sqrt(0.01);
+        double sqrt = new DIY_SqrtDouble().sqrt(0.01);
         System.out.println(sqrt);
-        double sqrt2 = new SqrtDouble().sqrt2(36);
+        double sqrt2 = new DIY_SqrtDouble().sqrt2(36);
         System.out.println(sqrt2);
     }
 
@@ -40,6 +40,5 @@ public class SqrtDouble {
             yp = yn;
         }
         return yn;
-
     }
 }

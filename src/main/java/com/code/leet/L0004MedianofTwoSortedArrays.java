@@ -42,5 +42,29 @@ public class L0004MedianofTwoSortedArrays {
         return recur(nums1, start1, end1, nums2, right + 1, end2, k - right + start2 - 1);
     }
 
+    public double findMedianSortedArrays2(int[] nums1, int[] nums2) {
+        int m = nums1.length,n=nums2.length;
+        int a = (m+n+1)/2;
+        int b = (m+n+2)/2;
+        return (findKth(nums1, 0, m, nums2, 0, n, a)+ findKth(nums1, 0, m, nums2, 0, n, b))/2.0;
+    }
 
+
+    public int findKth(int []s,int sStart,int sEnd,int[]t,int tStart,int tEnd,int k){
+        if (tEnd-tStart>sEnd-sStart) {
+            return findKth(t, tStart, tEnd, s, sStart, sEnd, k);
+        }
+        if (tEnd-tStart==0) {
+            return s[sStart+k-1];
+        }
+        if (k==1) {
+            return Math.min(s[sStart], t[tStart]);
+        }
+        int ti=Math.min(tEnd-tStart, k/2);
+        if (s[sStart+ti-1]>=t[tStart+ti-1]) {
+            return findKth(s, sStart, sEnd, t, tStart+ti, tEnd, k-ti);
+        }
+
+        return findKth(s, sStart+ti, sEnd, t, tStart, tEnd, k-ti);
+    }
 }
