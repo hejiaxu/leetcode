@@ -1,13 +1,13 @@
 package com.code.leet;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 /*
 Given a string s and a non-empty string p, find all the start indices of p's anagrams in s.
 
-Strings consists of lowercase English letters only and the length of both strings s and p will not be larger than 20,100.
+Strings consists of lowercase English letters only and the length of both strings s
+and p will not be larger than 20,100.
 
 The order of output does not matter.
  */
@@ -44,42 +44,38 @@ public class L0438FindAllAnagramsinaString {
         return list;
     }
 
-    public List<Integer> findAnagrams2(String s, String p) {
-        List<Integer> r = new LinkedList <>();
-        long hashcode = getHashcode(p);
+    public List<Integer> findAnagrams3(String s, String p) {
+        List<Integer> list = new ArrayList<>();
+        if (s == null || s.length() == 0 || p == null || p.length() == 0) {
+            return list;
+        }
+        int[] alphabets = new int[256]; //character alphabets
 
-        int plength = p.length();
-        int slength = s.length();
-        for (int i = 0; i < slength - plength + 1; i++) {
-            String cut = s.substring(i, i + plength);
-            if (getHashcode(cut) == hashcode) {
-                r.add(i);
+        for (char c : p.toCharArray()) {
+            alphabets[c]++;
+        }
+
+        int right = 0, count = p.length();
+        while (right < s.length()) {
+            if (alphabets[s.charAt(right)]-- >= 1) {
+                count--;
             }
+            if (count == 0) {
+                list.add(right - p.length());
+            }
+            if (right - p.length() >= 0 && alphabets[s.charAt(right - p.length())]++ >= 0) {
+                count++;
+            }
+            right++;
         }
-        return r;
-    }
-
-
-    private long getHashcode(String str) {
-        long add = 0;
-        long multiply = 1;
-        long xor = 1;
-        for (int i = 0; i < str.length(); i++) {
-            add += str.charAt(i);
-            multiply *= str.charAt(i) * (str.charAt(i) + 'a');
-            xor ^= str.charAt(i);
-        }
-
-        return add ^ multiply ^ xor;
+        return list;
     }
 
     public static void main(String[] args) {
-
         List <Integer> anagrams = new L0438FindAllAnagramsinaString().findAnagrams("aa", "bb");
         for (int i = 0; i < anagrams.size(); i++) {
             Integer integer = anagrams.get(i);
             System.out.println(integer);
         }
-
     }
 }

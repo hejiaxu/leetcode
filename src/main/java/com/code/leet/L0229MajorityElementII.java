@@ -12,7 +12,7 @@ import java.util.List;
  * Jun 12, 2017
  * 
  */
-public class MajorityElementII {
+public class L0229MajorityElementII {
 
 	public static void main(String[] args) {
 		// TODO 
@@ -22,40 +22,38 @@ public class MajorityElementII {
 	 public List<Integer> majorityElement(int[] nums) {
         List<Integer> result = new LinkedList<Integer>();
 
-	 	if (nums==null||nums.length<1) {
+	 	if (nums==null || nums.length<1) {
 			return result;
 		}
-        int major1=nums[0], count1 = 1,count2=0,major2=-1,len = nums.length;
-        for(int i=1; i<nums.length;i++){
-        	
-        	if (count1==0&&count2==0) {
-                major1=nums[i];
+        int major1 = nums[0], count1 = 1,count2 = 0,major2 = -1,len = nums.length;
+        for(int i = 1; i < nums.length; i++){
+        	if (count1 == 0 && count2 == 0) {
+                major1 = nums[i];
                 count1++;
-			}else if (count1==0&&count2!=0) {
-				if (major2==nums[i]) {
+			}else if (count1 == 0 && count2 != 0) {
+				if (major2 == nums[i]) {
 					count2++;
 				}else{
-					major1=nums[i];
+					major1 = nums[i];
 	                count1++;
 				}
-			}else if(count1!=0&&count2==0) {
-				if (major1==nums[i]) {
+			}else if(count1 != 0 && count2 == 0) {
+				if (major1 == nums[i]) {
 					count1++;
 				}else{
-					major2=nums[i];
+					major2 = nums[i];
 	                count2++;
 				}
 			}else {
-				if (major1==nums[i]) {
+				if (major1 == nums[i]) {
 					count1++;
-				}else if (major2==nums[i]) {
+				}else if (major2 == nums[i]) {
 					count2++;
 				}else {
 					count1--;
 					count2--;
 				}
 			}
-        		
         }
         count1 = 0;
     	count2 = 0;

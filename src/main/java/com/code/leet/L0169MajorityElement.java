@@ -8,41 +8,38 @@ package com.code.leet;
  * Jun 11, 2017
  * 
  */
-public class MajorityElement {
+public class L0169MajorityElement {
 
 	public static void main(String[] args) {
 		// TODO 
 
 	}
-	
-	
+
 	//34ms
 	public int majorityElement(int[] nums) {
-        int mid = nums.length/2;
-        return findKth(nums,mid);
+        int mid = nums.length / 2;
+        return findKth(nums, mid);
     }
 
 	private int findKth(int[] nums, int k) {
-		// TODO 
 		return findKthSort(nums,0,nums.length-1,k);
 	}
 
 	private int findKthSort(int[] nums, int i, int j, int k) {
-		// TODO 
-		int l=j,r=j;
-		while(l>i){
-			if (nums[l]<nums[i]) {
-				swap(nums,l,r--);
+		int l = j, r = j;
+		while(l > i){
+			if (nums[l] < nums[i]) {
+				swap(nums, l, r--);
 			}
 			l--;
 		}
 		swap(nums, l, r);
-		if (r==k) {
+		if (r == k) {
 			return nums[k];
-		}else if (r<k) {
-			return findKthSort(nums, r+1, j, k);
+		}else if (r < k) {
+			return findKthSort(nums, r + 1, j, k);
 		}else {
-			return findKthSort(nums, i, r-1, k);
+			return findKthSort(nums, i, r - 1, k);
 		}
 	}
 
@@ -57,11 +54,11 @@ public class MajorityElement {
 	 public int majorityElement2(int[] num) {
 
 	        int major=num[0], count = 1;
-	        for(int i=1; i<num.length;i++){
-	            if(count==0){
+	        for(int i=1; i < num.length;i++){
+	            if(count == 0){
 	                count++;
-	                major=num[i];
-	            }else if(major==num[i]){
+	                major = num[i];
+	            }else if(major == num[i]){
 	                count++;
 	            }else count--;
 	            
@@ -85,7 +82,6 @@ public class MajorityElement {
 		            else
 		                ++zeros;
 		        }
-
 		        if (ones > zeros)
 		            ret |= (1 << i);
 		    }

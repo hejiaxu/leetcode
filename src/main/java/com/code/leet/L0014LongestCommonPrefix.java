@@ -6,11 +6,9 @@ package com.code.leet;
 import java.util.Arrays;
 
 /**
- * Jiaxu
- * Jun 13, 2017
- * 
+ Write a function to find the longest common prefix string amongst an array of strings.
  */
-public class LongestCommonPrefix {
+public class L0014LongestCommonPrefix {
 
 	public static void main(String[] args) {
 		// TODO 
@@ -19,11 +17,11 @@ public class LongestCommonPrefix {
 	
 	//11ms
 	public String longestCommonPrefix(String[] strs) {
-        if (null==strs) {
+        if (null == strs) {
 			return null;
-		}else if (strs.length<1) {
+		}else if (strs.length < 1) {
 			return "";
-		}else if (strs.length==1) {
+		}else if (strs.length == 1) {
 			return strs[0];
 		}
 			
@@ -31,10 +29,7 @@ public class LongestCommonPrefix {
 		for (int i = 0; i < strs[0].length(); i++) {
 			char tmp = strs[0].charAt(i);
 			for (int j = 1; j < strs.length; j++) {
-				if (strs[j].length()<=i) {
-			        return sBuilder.toString();
-				}
-				if (strs[j].charAt(i)!=tmp) {
+				if (strs[j].length() <= i || strs[j].charAt(i) != tmp) {
 					return sBuilder.toString();
 				}
 			}
