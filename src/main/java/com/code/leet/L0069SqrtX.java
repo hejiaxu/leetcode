@@ -12,36 +12,49 @@ package com.code.leet;
  x is guaranteed to be a non-negative integer.
  */
 public class L0069SqrtX {
-
 	public static void main(String[] args) {
-		// TODO 
-		int mySqrt = new L0069SqrtX().mySqrt2(36);
+		int mySqrt = new L0069SqrtX().mySqrt(8);
 		System.out.println(mySqrt);
-		
-		
 	}
-	//3ms
+
 	public int mySqrt(int x) {
-        if(x==1)return 1;
-        int l=0,r=x/2;
-        while(l<r){
-        	long mid=(l+r)/2;
-        	long pow = mid*mid;
-			if (pow==x) {
-				return (int)mid;
-			}else if (pow<x) {
-				l=(int)(mid+1);
+        if(x == 1) {
+        	return 1;
+		}
+        int l = 0,r = x/2;
+        while(l <= r){
+        	int mid = (l + r) / 2;
+        	long pow = (long)mid * mid;
+			if (pow == x) {
+				return mid;
+			}else if (pow < x) {
+				l = (mid + 1);
 			}else {
-				r=(int)(mid-1);
+				r = (mid - 1);
 			}
         }
-        if (l*l>x) {
-			return l-1;
-		}
-        return l;
+        return r;
     }
 
-    //46ms
+	// y = sqrt(x) -> x - y ^ 2 = 0
+	// f = y ^ 2 - x0
+	// f' = 2y
+	// f' * (yn - yn-1) = xn - xn-1
+	// yn = yn-1 - (yn-1 ^ 2 - x0) / (2 * yn-1)
+	double sqrt(double x) {
+		double yp = x + 0.25, yn, ypp = yp;
+		for ( ; ; ) {
+			yn = (yp * yp + x) / (2 * yp);
+			if (Math.abs(yn - yp) <= 0.00001) break;
+			if (ypp == yn) {
+ 				break; // to break two value cycle.
+			}
+			ypp = yp;
+			yp = yn;
+		}
+		return yn;
+	}
+
 	int mySqrt2(int x) {
 		double yp = x + 0.25, yn;
 		for (; ; ) {
@@ -50,6 +63,5 @@ public class L0069SqrtX {
 			yp = yn;
 		}
 		return (int) yn;
-
 	}
 }

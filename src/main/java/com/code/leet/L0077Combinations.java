@@ -44,4 +44,18 @@ public class L0077Combinations {
         return ans;
     }
 
+    public List<List<Integer>> combine2(int n, int k) {
+        List<List<Integer>> ans = new LinkedList();
+        if (k == 0) {
+            ans.add(new LinkedList<Integer>());
+            return ans;
+        }
+        if (n < k) return ans;
+        ans = combine(n-1, k-1);
+        for (List<Integer> list:ans) {
+            list.add(n);
+        }
+        ans.addAll(combine(n-1, k));
+        return ans;
+    }
 }
