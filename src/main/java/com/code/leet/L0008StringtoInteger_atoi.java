@@ -1,7 +1,5 @@
 package com.code.leet;
 
-import org.omg.PortableInterceptor.INACTIVE;
-
 /*
 Implement atoi to convert a string to an integer.
 
