@@ -27,6 +27,7 @@ public class L0089GrayCode {
     public List<Integer> grayCode(int n) {
         List<Integer>[] dp = new List[n + 1];
         dp[0] = new LinkedList<>();
+        dp[0].add(0);
         return dp[n];
 
     }
