@@ -1,6 +1,18 @@
-
 package com.code.leet;
 
+/*
+You are given two non-empty linked lists representing two non-negative integers.
+The digits are stored in reverse order and each of their nodes contain a single digit.
+Add the two numbers and return it as a linked list.
+
+You may assume the two numbers do not contain any leading zero, except the number 0 itself.
+
+Example
+
+Input: (2 -> 4 -> 3) + (5 -> 6 -> 4)
+Output: 7 -> 0 -> 8
+Explanation: 342 + 465 = 807.
+ */
 public class L0002AddTwoNumbers {
 
 	public static void main(String[] args) {
@@ -15,14 +27,12 @@ public class L0002AddTwoNumbers {
 			System.out.println(addTwoNumbers.val);
 			addTwoNumbers = addTwoNumbers.next;
 		}
-		
-		
 	}
-	 static public class ListNode {
-	     int val;
-	     ListNode next;
-	     ListNode(int x) { val = x; }
-	 }
+	public static class ListNode {
+		int val;
+		ListNode next;
+	    ListNode(int x) { val = x; }
+	}
 	  // 69 ms
 	public static ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         ListNode l3 = null, pre = null, next = null;
@@ -58,5 +68,4 @@ public class L0002AddTwoNumbers {
 		}
 		return l3;
     }
-
 }

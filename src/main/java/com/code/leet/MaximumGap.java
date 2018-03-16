@@ -9,7 +9,6 @@ package com.code.leet;
  * 
  */
 public class MaximumGap {
-
 	public static void main(String[] args) {
 		// TODO 
 
