@@ -45,14 +45,12 @@ public class L0047PermutationsII {
 		}
 		Set<Integer> done = new HashSet<>();
 		for (int l = i; l < len; l++) { 
-			if (i == l || nums[i] != nums[l]) {
-					if (!done.contains(nums[l])) {
-						done.add(nums[l]);
-						swap(nums, i, l);
-						permuteRecur(result, nums, i+1);
-						swap(nums, i, l);
-					}
-			}
+            if (!done.contains(nums[l])) {
+                done.add(nums[l]);
+                swap(nums, i, l);
+                permuteRecur(result, nums, i+1);
+                swap(nums, i, l);
+            }
 		}
 	}
 	

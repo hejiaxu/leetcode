@@ -42,11 +42,8 @@ public class L0131PalindromePartitioning {
             String sub = s.substring(0, i);
             if (isPalindrome(sub)) {
                 for (List<String> list : partition(s.substring(i, s.length()))) {
-                    List<String> listClone = new LinkedList<>();
-                    listClone.add(sub);
-                    for (String str : list) {
-                        listClone.add(str);
-                    }
+                    List<String> listClone = new LinkedList<>(list);
+                    listClone.add(0, sub);
                     r.add(listClone);
                 }
             };

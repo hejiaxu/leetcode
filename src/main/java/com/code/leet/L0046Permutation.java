@@ -14,7 +14,7 @@ import java.util.List;
 public class L0046Permutation {
 
 	public static void main(String[] args) {
-		// TODO 
+		// TODO
 		int []nums=new int[]{1, 1, 1, 4};
 		Integer [] nums2 = new Integer[nums.length];
 		List<List<Integer>> permute6 = new L0046Permutation().permute2(nums);

@@ -1,7 +1,9 @@
 package com.code.leet;
 
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Stack;
 
 /*
 The gray code is a binary numeral system where two successive values differ in only one bit.
@@ -23,13 +25,30 @@ For example, [0,2,3,1] is also a valid gray code sequence according to the above
 For now, the judge is able to judge based on one instance of gray code sequence. Sorry about that.
  */
 public class L0089GrayCode {
-
+    public static void main(String[] args) {
+        List<Integer> integers = new L0089GrayCode().grayCode(2);
+        for (Integer integer : integers) {
+            System.out.println(integer);
+        }
+    }
     public List<Integer> grayCode(int n) {
-        List<Integer>[] dp = new List[n + 1];
-        dp[0] = new LinkedList<>();
-        dp[0].add(0);
-        return dp[n];
-
+        LinkedList<Integer> last = new LinkedList();
+        last.add(0);
+        LinkedList<Integer> r = last;
+        for (int i = 0; i < n; i++) {
+            r = new LinkedList<>();
+            for (Integer integer : last) {
+                r.add(integer);
+            }
+            Iterator<Integer> rIterator = last.descendingIterator();
+            while (rIterator.hasNext()) {
+                Integer next = rIterator.next();
+                next |= 1 << i;
+                r.add(next);
+            }
+            last = r;
+        }
+        return r;
     }
 
 }

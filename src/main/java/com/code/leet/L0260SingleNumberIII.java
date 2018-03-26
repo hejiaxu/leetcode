@@ -25,10 +25,10 @@ public class L0260SingleNumberIII {
         for (int j = 0; j < nums.length; j++) {
             xor ^= nums[j];
         }
-        int diff = xor & -xor;
+        int lastOne = xor & -xor;
 
         for (int i = 0; i < nums.length; i++) {
-            if ((diff & nums[i]) == 0) {
+            if ((lastOne & nums[i]) == 0) {
                 r1 ^= nums[i];
             } else {
                 r2 ^= nums[i];

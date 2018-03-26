@@ -10,8 +10,33 @@ find the largest rectangle containing only 1's and return its area.
  */
 public class L0085MaximalRectangle {
 
-
     public int maximalRectangle(char[][] matrix) {
+        if(matrix.length == 0) {
+            return 0;
+        }
+        int area = 0, new_area, r, l;
+        int[] line = new int[matrix[0].length];
+        for(int i = 0; i < matrix.length; i++){
+            for(int j = 0; j < matrix[i].length; j++){
+                if (matrix[i][j] == '1') {
+                    line[j]++;
+                } else {
+                    line[j] = 0;
+                }
+            }
+            for(int j = 0; j < matrix[i].length; j++){
+                r = l = 1;
+                while((j + r < line.length)&&(line[j + r] >= line[j])){
+                    r++;
+                }
+                while((j - l >= 0)&&(line[j - l] >= line[j])) l++;
+                new_area = (r + l - 1)*line[j];
+                if (new_area > area) area = new_area;
+            }
+        }
+        return area;
+    }
+    public int maximalRectangle2(char[][] matrix) {
         int max = 0;
         int height = matrix.length;
         if (height == 0) {

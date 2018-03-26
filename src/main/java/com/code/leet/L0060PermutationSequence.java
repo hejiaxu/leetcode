@@ -9,51 +9,33 @@ import java.util.List;
 import java.util.TreeSet;
 
 /**
- * Jiaxu
- * Jun 14, 2017
- * 
+ The set [1,2,3,…,n] contains a total of n! unique permutations.
+
+ By listing and labeling all of the permutations in order,
+ We get the following sequence (ie, for n = 3):
+
+ "123"
+ "132"
+ "213"
+ "231"
+ "312"
+ "321"
+ Given n and k, return the kth permutation sequence.
+
+ Note: Given n will be between 1 and 9 inclusive.
  */
-public class PermutationSequence {
+public class L0060PermutationSequence {
 
 	public static void main(String[] args) {
 		// TODO 
-		String permutation = getPermutation3(2, 2);
+		String permutation = getPermutation(2, 2);
 		System.out.println(permutation);
 	}
 	
-	
-	//32ms
+
+	//15ms
 	public static String getPermutation(int n, int k) {
 		StringBuilder sBuilder = new StringBuilder();
-		TreeSet<Integer> set =  new TreeSet<>();
-        int len = n;
-        int total=1;
-        for (int i = 0; i < len; i++) {
-        	total*=i+1;
-        	set.add(i+1);
-		}
-        k-=1;
-        for (int j = len; j > 0 ; j--) {
-        	k%=total;
-        	total/=j;
-			int t = k/total;
-			Iterator<Integer> iterator = set.iterator(); 
-			while (iterator.hasNext()&&t>=0) {
-				Integer integer = (Integer) iterator.next();
-				sBuilder.append(integer);
-				t--;
-			}
-			iterator.remove();
-		}
-        
-		return sBuilder.toString();
-    }
-	
-	//15ms
-	public static String getPermutation3(int n, int k) {
-		StringBuilder sBuilder = new StringBuilder();
-		//20ms
-//		TreeSet<Integer> set =  new TreeSet<>();
 		ArrayList<Integer> set = new ArrayList<>();
 		int sum = 1;
 		for (int i = 0; i < n; i++) {
@@ -63,21 +45,7 @@ public class PermutationSequence {
 		getPermutationRecur2(sBuilder,set,n,(k-1)%sum,sum);
 		return sBuilder.toString();
 	}
-	//20ms
-	public static void getPermutationRecur(StringBuilder sBuilder,TreeSet<Integer> set,int n, int k, int sum) {
-		int total=sum/n,t = k/total;
-		Iterator<Integer> iterator = set.iterator(); 
-		while (iterator.hasNext()) {
-			Integer integer = (Integer) iterator.next();
-			if (t==0) {
-				sBuilder.append(integer);
-				iterator.remove();
-				break;
-			}
-			t--;
-		}
-		if (n>1)getPermutationRecur(sBuilder, set, n-1, k%total, total);
-    }
+
 	public static void getPermutationRecur2(StringBuilder sBuilder,ArrayList<Integer> set,int n, int k, int sum) {
 		int total=sum/n,t = k/total;
 		Integer integer = set.get(t);
