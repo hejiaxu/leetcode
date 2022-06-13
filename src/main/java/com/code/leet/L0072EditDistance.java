@@ -13,7 +13,6 @@ c) Replace a character
 public class L0072EditDistance {
 
     public int minDistance(String word1, String word2) {
-        int min = 0;
         int[][] record = new int[word1.length() + 1][word2.length() + 1];
         record[0][0] = 0;
         for (int i = 0; i < word2.length(); i++) {

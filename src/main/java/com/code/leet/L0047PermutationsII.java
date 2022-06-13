@@ -3,13 +3,7 @@
  */
 package com.code.leet;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 /**
  Given a collection of numbers that might contain duplicates, return all possible unique permutations.
@@ -51,14 +45,12 @@ public class L0047PermutationsII {
 		}
 		Set<Integer> done = new HashSet<>();
 		for (int l = i; l < len; l++) { 
-			if (i == l || nums[i] != nums[l]) {
-					if (!done.contains(nums[l])) {
-						done.add(nums[l]);
-						swap(nums, i, l);
-						permuteRecur(result, nums, i+1);
-						swap(nums, i, l);
-					}
-			}
+            if (!done.contains(nums[l])) {
+                done.add(nums[l]);
+                swap(nums, i, l);
+                permuteRecur(result, nums, i+1);
+                swap(nums, i, l);
+            }
 		}
 	}
 	

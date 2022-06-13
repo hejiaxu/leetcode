@@ -1,15 +1,25 @@
 package com.code.leet;
 
-/*
-Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.
- */
 
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.LinkedList;
 import java.util.List;
 
+/*
+Given n pairs of parentheses,
+write a function to generate all combinations of well-formed parentheses.
+
+For example, given n = 3, a solution set is:
+
+[
+  "((()))",
+  "(()())",
+  "(())()",
+  "()(())",
+  "()()()"
+]
+ */
 public class L0022GenerateParentheses {
 
     public List<String> generateParenthesis(int n) {
@@ -28,7 +38,6 @@ public class L0022GenerateParentheses {
                         stringBuilder = new StringBuilder(stringBuilder);
                         stringBuilder.append(')');
                         record.add(stringBuilder);
-
                     }
                 }
             }
@@ -82,18 +91,19 @@ public class L0022GenerateParentheses {
         generate(m, "", n, n);
         return m;
     }
+
     public void generate(ArrayList m, String s, int l, int r){
-        if(l==0 && r==0){
+        if(l == 0 && r == 0){
             m.add(s);
             return;
         }
-        if(l>0) generate(m, s+"(",  l-1,  r);
-        if(r>l) generate(m, s+")",  l,  r-1);
+        if(l > 0) generate(m, s + "(",  l - 1,  r);
+        if(r > l) generate(m, s + ")",  l,  r - 1);
     }
 
     public List<String> generateParenthesis5(int n) {
         List<String> res = new ArrayList<>();
-        char[] perm = new char[n*2];
+        char[] perm = new char[n * 2];
         perms(n, n, perm, 0, res);
         return res;
     }

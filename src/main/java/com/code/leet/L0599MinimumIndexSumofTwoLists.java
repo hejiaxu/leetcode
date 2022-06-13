@@ -1,6 +1,9 @@
 package com.code.leet;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 
 /*
 Suppose Andy and Doris want to choose a restaurant for dinner,

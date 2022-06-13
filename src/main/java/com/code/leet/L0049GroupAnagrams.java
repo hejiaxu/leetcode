@@ -62,7 +62,7 @@ public class L0049GroupAnagrams {
         }
 
         long add = new L0049GroupAnagrams().getHashcode("may");
-        long ebb = new L0049GroupAnagrams().getHashcode("max");
+        long ebb = new L0049GroupAnagrams().getHashcode("maxG");
         System.out.println(add + "  " + ebb);
 
     }

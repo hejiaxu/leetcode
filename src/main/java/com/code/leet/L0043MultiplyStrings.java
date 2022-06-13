@@ -1,10 +1,5 @@
 package com.code.leet;
 
-import java.io.BufferedInputStream;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-
 /*
 
 Given two non-negative integers num1 and num2 represented as strings, return the product of num1 and num2.

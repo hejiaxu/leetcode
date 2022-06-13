@@ -20,10 +20,6 @@ All the numbers in the input array are in the range of 32-bit integer.
 
  */
 
-import com.sun.tools.hat.internal.util.ArraySorter;
-
-import java.util.Arrays;
-
 public class L0493ReversePairs {
 
     public int reversePairs(int[] nums) {

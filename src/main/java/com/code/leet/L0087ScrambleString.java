@@ -1,15 +1,9 @@
 package com.code.leet;
 
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-
 /*
 Given a string s1,
 we may represent it as a binary tree by partitioning it
 to two non-empty substrings recursively.
-
-
  */
 public class L0087ScrambleString {
 
@@ -39,60 +33,43 @@ public class L0087ScrambleString {
         return record[len - 1][0][0];
     }
 
-    public boolean isScramble(String s1, String s2) {
+    public boolean isScramble3(String s1, String s2) {
         int len = s1.length();
         if (s1.equals(s2)) {
             return true;
         }
+        if (!isCoincide(s1, s2)) {
+            return false;
+        }
 
         for (int i = 1; i < len; i++) {
-
             String ss1i = s1.substring(0, i);
             String ss2i = s2.substring(0, i);
             String ss1l = s1.substring(i, len);
             String ss2l = s2.substring(i, len);
             String ss1x = s2.substring(len - i, len);
             String ss2x = s2.substring(0, len - i);
-            if( isCoincide(ss1i, ss2i)
-                    && isCoincide(ss1l, ss2l)
-                    && isScramble(ss1i, ss2i)
-                    && isScramble(ss1l, ss2l)
-
-                    || (isCoincide(ss1i, ss1x)
-                    && isCoincide(ss1l, ss2x)
-                    && isScramble(ss1i, ss1x)
-                    && isScramble(ss1l, ss2x))) {
+            if(isScramble3(ss1i, ss2i) && isScramble3(ss1l, ss2l) || (isScramble3(ss1i, ss1x) && isScramble3(ss1l, ss2x))) {
                 return true;
             }
         }
-
         return false;
     }
+
     boolean isCoincide(String s1, String s2) {
         int l1 = s1.length();
         int l2 = s2.length();
         if (l1 != l2) {
             return false;
         }
-        HashMap<Character, Integer> map = new LinkedHashMap <>();
+        int[] hash = new int[128];
         for (int i = 0; i < l1; i++) {
-            char key1 = s1.charAt(i);
-            if (map.containsKey(key1)) {
-                map.put(key1, map.get(key1) + 1);
-            } else {
-                map.put(key1, 1);
-            }
-            char key2 = s2.charAt(i);
-            if (map.containsKey(key2)) {
-                map.put(key2, map.get(key2) - 1);
-            } else {
-                map.put(key2, -1);
-            }
+            hash[s1.charAt(i)]++;
+            hash[s2.charAt(i)]--;
         }
 
-        Collection <Integer> values = map.values();
-        for(Integer i : values) {
-            if (i != 0) {
+        for (int i = 0; i < hash.length; i++) {
+            if (hash[i] != 0) {
                 return false;
             }
         }
@@ -103,7 +80,7 @@ public class L0087ScrambleString {
     public static void main(String[] args) {
         String s1 = "aa";
         String s2 = "ab";
-        boolean scramble = new L0087ScrambleString().isScrambleBest(s1, s2);
+        boolean scramble = new L0087ScrambleString().isScramble(s1, s2);
         System.out.println(scramble);
     }
 
@@ -121,23 +98,31 @@ public class L0087ScrambleString {
             829, 839, 853, 857, 859, 863, 877, 881, 883, 887, 907, 911, 919, 929,
             937, 941, 947, 953, 967, 971, 977, 983, 991, 997};
 
-    public boolean isScrambleBest(String s1, String s2) {
+    public boolean isScramble(String s1, String s2) {
         int l1=s1.length(), l2=s2.length();
-        if(l1!=l2) return false;
-        if(l1<=1) return s1.equals(s2);
-        if(s1.equals(s2)) return true;
-        long a=1, b=1, c=1;
-        for(int i=0; i<l1; i++){
-            if(i>0 && a==b && isScrambleBest(s1.substring(0,i),s2.substring(l2-i)) && isScrambleBest(s1.substring(i),s2.substring(0,l2-i)))
+        if(l1 != l2) {
+            return false;
+        }
+        if(l1 <= 1) {
+            return s1.equals(s2);
+        }
+        if(s1.equals(s2)) {
+            return true;
+        }
+        long a = 1, b = 1, c = 1;
+        for(int i = 0; i < l1; i++){
+            if(i > 0 && a == b && isScramble(s1.substring(0, i), s2.substring(l2 - i)) && isScramble(s1.substring(i),s2.substring(0,l2 - i))) {
                 return true;
-            if(i>0 && a==c && isScrambleBest(s1.substring(0,i),s2.substring(0,i)) && isScrambleBest(s1.substring(i),s2.substring(i)))
+            }
+            if(i > 0 && a == c && isScramble(s1.substring(0, i),s2.substring(0, i)) && isScramble(s1.substring(i), s2.substring(i))) {
                 return true;
-//            a*=s1.charAt(i);
-//            b*=s2.charAt(l2-1-i);
-//            c*=s2.charAt(i);
-            a*=p[s1.charAt(i)-'A'];
-            b*=p[s2.charAt(l2-1-i)-'A'];
-            c*=p[s2.charAt(i)-'A'];
+            }
+            a *= s1.charAt(i);
+            b *= s2.charAt(l2-1-i);
+            c *= s2.charAt(i);
+//            a*=p[s1.charAt(i)-'A'];
+//            b*=p[s2.charAt(l2-1-i)-'A'];
+//            c*=p[s2.charAt(i)-'A'];
         }
         return false;
     }

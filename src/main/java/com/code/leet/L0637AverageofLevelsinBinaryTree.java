@@ -1,8 +1,8 @@
 package com.code.leet;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
+
 /*
 Given a non-empty binary tree,
 return the average value of the nodes on each level in the form of an array.

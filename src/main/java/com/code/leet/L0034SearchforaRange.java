@@ -13,7 +13,6 @@ Given [5, 7, 7, 8, 8, 10] and target value 8,
 return [3, 4].
  */
 public class L0034SearchforaRange {
-
     public int[] searchRange(int[] nums, int target) {
         int[] result = {-1, -1};
         int ll = 0;
@@ -30,10 +29,8 @@ public class L0034SearchforaRange {
         int rl = 0;
         int rr = nums.length - 1;
         while(rl <= rr && nums[rr] >= target) {
-            int rmid = (rl + rr + 1) / 2;
-            if (nums[rmid] == target) {
-                rl = rmid + 1;
-            } else if (nums[rmid] < target) {
+            int rmid = (rl + rr) / 2;
+            if (nums[rmid] <= target) {
                 rl = rmid + 1;
             } else {
                 rr = rmid - 1;
@@ -49,7 +46,8 @@ public class L0034SearchforaRange {
 
     public static void main(String[] args) {
         int[] nums = {1};
-        int[] ints = new L0034SearchforaRange().searchRange(nums, 1);
+        int target = 1;
+        int[] ints = new L0034SearchforaRange().searchRange(nums, target);
         System.out.println(ints[0]);
         System.out.println(ints[1]);
     }
